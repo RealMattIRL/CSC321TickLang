@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Black">
+    <option name="sdkName" value="uv (CSC321TickLang)" />
+  </component>
+  <component name="ProjectRootManager" version="2" project-jdk-name="uv (CSC321TickLang)" project-jdk-type="Python SDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>
