@@ -1,4 +1,4 @@
-from Token import Token
+from src.Token import Token
 from typing import List
 
 class TempLexer:

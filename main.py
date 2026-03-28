@@ -1,11 +1,12 @@
 import sys
-from TempLexer import TempLexer
-from Parser import Parser
-from ParserOut import ParseOut
+sys.path.insert(0, 'src')
+from src.TempLexer import TempLexer
+from src.Parser import Parser
+from src.ParserOut import ParseOut
 
 def main():
-    if len(sys.argv) != 3 or sys.argv[1] != "parse":
-        print("Usage: tick parse <file>")
+    if len(sys.argv) != 3 or sys.argv[1] not in("parse" , "lex"):
+        print("Usage: tick parse <file> or tick lex <file>")
         sys.exit(1)
 
     filepath = sys.argv[2]
@@ -18,8 +19,14 @@ def main():
 
     try:
         tokens = TempLexer(source).tokenize()
-        ast    = Parser(tokens).parse()
-        ParseOut(ast)
+
+        if sys.argv[1] == "lex":
+            for tok in tokens:
+                print(tok)
+        elif sys.argv[1] == "parse":
+            ast    = Parser(tokens).parse()
+            ParseOut(ast)
+
     except SyntaxError as e:
         print(f"Parse error: {e}")
         sys.exit(1)

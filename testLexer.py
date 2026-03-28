@@ -1,5 +1,6 @@
-# test_lexer.py
-from TempLexer import TempLexer
+import sys
+sys.path.insert(0, 'src')
+from src.TempLexer import TempLexer
 
 def test(name, source, expect_success=True):
     print(f"{'='*50}")

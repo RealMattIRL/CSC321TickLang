@@ -1,7 +1,9 @@
 # test_parser.py
-from TempLexer import TempLexer
-from Parser import Parser
-from ParserOut import ParseOut
+import sys
+sys.path.insert(0, 'src')
+from src.TempLexer import TempLexer
+from src.Parser import Parser
+from src.ParserOut import ParseOut
 
 def test(name, source, expect_success=True):
     print(f"{'='*50}")

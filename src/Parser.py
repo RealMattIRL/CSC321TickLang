@@ -1,4 +1,4 @@
-from TempAST import PingNode, BeepNode, FlashNode, WaitNode, SignalNode, ProgramNode
+from src.TempAST import PingNode, BeepNode, FlashNode, WaitNode, SignalNode, ProgramNode
 
 class Parser:
     def __init__(self, tokens):

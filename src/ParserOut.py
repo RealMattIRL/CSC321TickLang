@@ -1,4 +1,4 @@
-from TempAST import PingNode, BeepNode, FlashNode, WaitNode, SignalNode, ProgramNode
+from src.TempAST import PingNode, BeepNode, FlashNode, WaitNode, SignalNode, ProgramNode
 
 def ParseOut(node, indent=0):
     pad = "  " * indent
