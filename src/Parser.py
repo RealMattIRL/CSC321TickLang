@@ -50,7 +50,7 @@ class Parser:
         arg = self.consume('INTEGER')
         n   = int(arg.value)
         if n < 0:
-            raise SyntaxError(f"Line {cmd.line}: 'wait' time cannot be negative (got {n})")
+            raise SyntaxError(f"Line {cmd.line}: 'wait' event cannot be negative (got {n})")
         return WaitNode(ticks=n)
 
     def parse_ping(self):
@@ -62,8 +62,11 @@ class Parser:
         return BeepNode()
 
     def parse_signal(self):
-        self.consume('SIGNAL')
+        cmd = self.consume('SIGNAL')
         arg = self.consume('INTEGER')
+        n = int(arg.value)
+        if n < 0:
+            raise SyntaxError(f"Line {cmd.line}: 'signal' event cannot be negative (got {n})")
         return SignalNode(sig=int(arg.value))
 
     def parse_flash(self):
