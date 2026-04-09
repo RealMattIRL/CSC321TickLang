@@ -1,51 +1,49 @@
-Tick — A Minimal Timed‑Event Scripting Language
-Tick is a tiny, timeline‑driven scripting language built for sequencing actions with precise timing.
-Programs execute linearly from top to bottom, making Tick ideal for simple, predictable timed behaviors.
+Tick is a minimal timed‑event scripting language designed for sequencing actions with precise timing. Programs execute strictly from top to bottom, making Tick suitable for simple and predictable timed behaviors.
 
-Overview
-A Tick program reads like a timeline:
+Overview:
+A Tick program is written as a sequence of commands, for example:
 
-Code
 ping
 wait 2
 signal 5
 flash
-Each command fires at a specific moment, with wait n advancing the internal clock.
-The language is intentionally minimal—no variables, loops, or branching—so behavior is always easy to reason about.
 
-Repository Structure
-Code
+Each command executes in order. The "wait n" command advances the internal clock by n ticks. The language has no variables, no loops, and no branching, keeping behavior simple and easy to reason about.
+
+Repository Structure:
 CSC321TickLang/
-│
-├── main.py               # Entry point for running Tick programs
-├── pyproject.toml        # Project metadata
-├── uv.lock               # Dependency lock file
-│
-├── src/                  # Core language implementation
-│   ├── Parser.py
-│   ├── ParserOut.py
-│   ├── TempAST.py
-│   ├── Token.py
-│   └── Lexer + helpers
-│
-├── tests/                # Test suite for lexer, parser, and sample programs
-│   ├── valid.tick
-│   ├── valid2.tick
-│   ├── invalid.tick
-│   ├── testLexer.py
-│   └── testParser.py
-│
-└── .idea/                # IDE configuration (PyCharm)
-Language Features
-Supported Commands
-Command	Description
-wait n	Delay next action by n ticks (non‑negative integer)
-ping	Emit a "ping" event
-beep	Emit a "beep" event
-signal n	Emit a numeric signal (non‑negative integer)
-flash	Emit a "flash" event
+main.py (entry point for running Tick programs)
+pyproject.toml (project metadata)
+uv.lock (dependency lock file)
+src/ (core language implementation)
+Parser.py
+ParserOut.py
+TempAST.py
+Token.py
+Lexer and helpers
+tests/ (test suite)
+valid.tick
+valid2.tick
+invalid.tick
+testLexer.py
+testParser.py
+.idea/ (IDE configuration)
 
-Execution Model
+Language Features:
+Supported commands:
+
+wait n : delay the next action by n ticks (n must be non‑negative)
+
+ping : emit a "ping" event
+
+beep : emit a "beep" event
+
+signal n : emit a numeric signal (n must be non‑negative)
+
+flash : emit a "flash" event
+
+Execution model:
+
 Linear, top‑to‑bottom execution
 
 Only integers allowed
@@ -58,8 +56,8 @@ No conditionals
 
 No functions
 
-Error Handling
-The interpreter halts on:
+Error handling:
+The interpreter stops when encountering:
 
 Negative wait times
 
@@ -69,12 +67,11 @@ Unknown commands
 
 Invalid or missing arguments
 
-Running Tick Programs
-From the project root:
+Running Tick Programs:
+From the project root, run:
 
-Code
 python3 main.py path/to/program.tick
+
 Example:
 
-Code
 python3 main.py tests/valid.tick
