@@ -10,6 +10,7 @@ class TempLexer:
         lines = self.source.splitlines()
 
         for line_num, line in enumerate(lines, start=1):
+            line = line.split('#')[0]   # remove everything after '#' in order to propely parse code comments
             stripped = line.strip()
             if not stripped:
                 continue  # skip empty lines
