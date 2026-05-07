@@ -64,10 +64,14 @@ Error handling:
 
 ## Running Tick Programs
 
-From the project root:
+In the terminal type:
 
-    python3 main.py path/to/program.tick
+    python main.py  than, type either parse or lex, then tests/ invalid(n) or valid(n) . tick
 
 Example:
 
-    python3 main.py tests/valid.tick
+    python main.py parse tests/valid1.tick
+
+    python main.py lex tests/valid3.tick
+
+    python main.py lex tests/invalid5.tick
