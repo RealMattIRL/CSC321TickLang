@@ -66,7 +66,7 @@ Error handling:
 
 In the terminal type:
 
-    python main.py  than, type either parse or lex, then tests/ invalid(n) or valid(n) . tick
+    python main.py <parse/lex> <path-to-tick-file>
 
 Example:
 
